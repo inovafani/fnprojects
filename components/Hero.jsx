@@ -131,10 +131,11 @@ export default function Hero() {
           </a>
           <a
             href="#work"
-            className="hero-cta anim-hidden"
-            style={{ display: "inline-flex", alignItems: "center", height: 52, padding: "0 28px", border: "1px solid rgba(255,255,255,.34)", color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: "var(--radius-md)" }}
+            className="hero-cta btn-sweep anim-hidden"
+            // colour + border live in .btn-sweep so the :hover rule can win
+            style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", height: 52, padding: "0 28px", fontSize: 14, fontWeight: 600, borderRadius: "var(--radius-md)", position: "relative", overflow: "hidden" }}
           >
-            View our work
+            <span>View our work</span>
           </a>
         </div>
       </div>

@@ -138,6 +138,42 @@ img {
 .btn-p:active {
   background: var(--color-primary-active) !important;
 }
+/* Ghost button: a white circle grows out of the bottom-left corner on hover,
+   flipping the label to ink. The circle is sized past the button's diagonal so
+   it always covers the full face, and overflow:hidden clips it to the radius. */
+.btn-sweep {
+  isolation: isolate;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  transition: color 0.25s ease 0.12s, border-color 0.45s ease;
+}
+.btn-sweep::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 280%;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, 50%) scale(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+.btn-sweep > span {
+  position: relative;
+  z-index: 1;
+}
+.btn-sweep:hover,
+.btn-sweep:focus-visible {
+  color: var(--color-ink);
+  border-color: #fff;
+}
+.btn-sweep:hover::before,
+.btn-sweep:focus-visible::before {
+  transform: translate(-50%, 50%) scale(1);
+}
+
 .card-lift {
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
@@ -196,6 +232,10 @@ img {
   /* Blind-reveal strips fully retracted when motion is reduced. */
   .gal-strip {
     transform: scaleX(0) !important;
+  }
+  /* Swap instantly instead of sweeping. */
+  .btn-sweep::before {
+    transition: none;
   }
 }
 
