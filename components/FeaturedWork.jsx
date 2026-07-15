@@ -1,14 +1,20 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { projects } from "@/lib/data";
+import Lightbox from "@/components/Lightbox";
 
 const STRIPS = 8;
 
 export default function FeaturedWork() {
   const root = useRef(null);
   const trackRef = useRef(null);
+  const [lightbox, setLightbox] = useState(null);
+
+  const closeLb = useCallback(() => setLightbox(null), []);
+  const prevLb = useCallback(() => setLightbox((i) => (i === null ? i : (i - 1 + projects.length) % projects.length)), []);
+  const nextLb = useCallback(() => setLightbox((i) => (i === null ? i : (i + 1) % projects.length)), []);
 
   function scrollGallery(dir) {
     const track = trackRef.current;
@@ -138,9 +144,15 @@ export default function FeaturedWork() {
           msOverflowStyle: "none",
         }}
       >
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <div key={p.title} className="gal-item" style={{ flex: "0 0 clamp(240px,30vw,392px)", scrollSnapAlign: "start" }}>
-            <div className="gal-frame" style={{ aspectRatio: "3 / 4", overflow: "hidden", background: "var(--color-canvas-soft)", position: "relative" }}>
+            <button
+              type="button"
+              className="gal-frame"
+              aria-label={`View ${p.title} full screen`}
+              onClick={() => setLightbox(i)}
+              style={{ aspectRatio: "3 / 4", overflow: "hidden", background: "var(--color-canvas-soft)", position: "relative", display: "block", width: "100%", padding: 0, border: "none", cursor: "zoom-in" }}
+            >
               <div
                 className="gal-img"
                 style={{ width: "100%", height: "100%", backgroundImage: `url('${p.img}')`, backgroundSize: "cover", backgroundPosition: "center", transition: "transform .5s ease-out" }}
@@ -155,7 +167,7 @@ export default function FeaturedWork() {
                   />
                 ))}
               </div>
-            </div>
+            </button>
             <div style={{ padding: "18px 2px 0" }}>
               <div className="gal-cap" style={{ fontSize: 12, fontWeight: 600, letterSpacing: "1.6px", textTransform: "uppercase", color: "var(--color-primary)", marginBottom: 9 }}>{p.category}</div>
               <div className="gal-cap" style={{ fontFamily: "var(--font-display)", fontSize: 22, lineHeight: 1.2, color: "var(--color-ink)", marginBottom: 8 }}>{p.title}</div>
@@ -166,6 +178,8 @@ export default function FeaturedWork() {
         ))}
         <div style={{ flex: "0 0 clamp(4px,4vw,44px)" }} />
       </div>
+
+      <Lightbox items={projects} index={lightbox} onClose={closeLb} onPrev={prevLb} onNext={nextLb} />
     </section>
   );
 }

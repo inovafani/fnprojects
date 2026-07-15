@@ -84,16 +84,8 @@ export default function About() {
           className="stat-row"
           style={{ display: "flex", gap: 0, flexWrap: "wrap", marginTop: "clamp(48px,6vw,72px)", borderTop: "1px solid var(--color-hairline)" }}
         >
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className="stat-col"
-              style={{
-                flex: "1 1 200px",
-                padding: i === 0 ? "28px 28px 28px 0" : "28px",
-                borderRight: i < stats.length - 1 ? "1px solid var(--color-hairline)" : "none",
-              }}
-            >
+          {stats.map((s) => (
+            <div key={s.label} className="stat-col">
               <div
                 className="stat-num"
                 data-value={s.value}

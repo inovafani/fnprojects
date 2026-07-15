@@ -24,14 +24,6 @@ export default function Testimonials() {
         ease: "power3.out",
         scrollTrigger: { trigger: ".tst-grid", start: "top 80%" },
       });
-      gsap.from(".tst-mark", {
-        scale: 0.4,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.14,
-        ease: "back.out(2)",
-        scrollTrigger: { trigger: ".tst-grid", start: "top 80%" },
-      });
     },
     { scope: root }
   );
@@ -44,12 +36,9 @@ export default function Testimonials() {
         </div>
         <div className="tst-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 0 }}>
           {testimonials.map((t) => (
-            <div key={t.name} className="tst-col" style={{ display: "flex", flexDirection: "column", padding: "0 clamp(20px,2.6vw,36px)", borderLeft: "1px solid var(--color-hairline-inverse)" }}>
-              <div className="tst-mark" style={{ fontFamily: "var(--font-display)", fontSize: 40, lineHeight: 1, color: "var(--color-primary-tint,#7fb08a)", marginBottom: 18 }}>
-                &ldquo;
-              </div>
+            <div key={t.name} className="tst-col">
               <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "clamp(19px,1.9vw,23px)", lineHeight: 1.5, color: "#fff", margin: "0 0 32px" }}>
-                {t.quote}
+                &ldquo;{t.quote}&rdquo;
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: "auto" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -16,8 +16,6 @@ export default function Hero() {
       // Background: slow settle-in zoom (Ken Burns).
       tl.fromTo(".hero-bg", { scale: 1.18 }, { scale: 1, duration: 2.4, ease: "power2.out" }, 0)
         .fromTo(".hero-overlay", { opacity: 0 }, { opacity: 1, duration: 1.4 }, 0)
-        // Accent line draws out.
-        .from(".hero-line", { scaleX: 0, transformOrigin: "left center", duration: 1, ease: "power2.inOut" }, 0.3)
         // Eyebrow.
         .fromTo(".hero-eyebrow", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.45)
         // Headline lines: masked reveal (parent has overflow:hidden).
@@ -76,11 +74,6 @@ export default function Hero() {
           background:
             "linear-gradient(180deg,rgba(6,20,14,.62) 0%,rgba(6,20,14,.24) 42%,rgba(6,20,14,.74) 100%)",
         }}
-      />
-
-      <div
-        className="hero-line"
-        style={{ position: "absolute", top: 104, left: "clamp(20px,4vw,48px)", width: 64, height: 1, background: "rgba(255,255,255,.4)" }}
       />
 
       <div

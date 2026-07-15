@@ -156,6 +156,21 @@ img {
   color: #fff !important;
   border-color: var(--color-ink) !important;
 }
+.lb-btn:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+}
+/* Arrows sit inside the gutters on desktop; drop them lower on narrow screens. */
+@media (max-width: 640px) {
+  .lb-arrow {
+    top: auto !important;
+    bottom: 14px !important;
+    transform: none !important;
+  }
+  .lb-desc {
+    display: none;
+  }
+}
 #gal-track::-webkit-scrollbar {
   display: none;
 }
@@ -184,9 +199,61 @@ img {
   }
 }
 
-/* On small screens, collapse the inline text nav — keep the CTA. */
-@media (max-width: 620px) {
-  .nav-link-hide {
+/* On small screens, swap the inline nav for the hamburger menu. */
+@media (max-width: 860px) {
+  .nav-desktop {
     display: none !important;
+  }
+  .nav-burger {
+    display: flex !important;
+  }
+}
+
+/* ---- About stats: vertical rules on desktop, stacked rules on mobile ---- */
+.stat-col {
+  flex: 1 1 200px;
+  padding: 28px;
+  border-right: 1px solid var(--color-hairline);
+}
+.stat-col:first-child {
+  padding-left: 0;
+}
+.stat-col:last-child {
+  border-right: none;
+}
+
+@media (max-width: 720px) {
+  .stat-col {
+    flex: 1 1 100%;
+    padding: 22px 0;
+    border-right: none;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+  .stat-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+/* ---- Testimonials: left rules on desktop, stacked on mobile ---- */
+.tst-col {
+  display: flex;
+  flex-direction: column;
+  padding: 0 clamp(20px, 2.6vw, 36px);
+  border-left: 1px solid var(--color-hairline-inverse);
+}
+
+@media (max-width: 760px) {
+  .tst-col {
+    padding: 30px 0;
+    border-left: none;
+    border-top: 1px solid var(--color-hairline-inverse);
+  }
+  .tst-col:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+  .tst-col:last-child {
+    padding-bottom: 0;
   }
 }

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import fnMark from "@/public/fn-logo-rounded.png";
+import fnMark from "@/public/fn-logo-mark.png";
 import { footerServices } from "@/lib/data";
 
 const footLink = { display: "block", fontSize: 14, color: "#fff", opacity: 0.9, marginBottom: 10 };
@@ -15,8 +15,8 @@ export default function Footer() {
         <div style={{ display: "flex", gap: "clamp(32px,5vw,64px)", flexWrap: "wrap", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid var(--color-hairline-inverse)" }}>
           <div style={{ flex: "1 1 260px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 18 }}>
-              <Image src={fnMark} alt="" height={48} width={48} style={{ height: 48, width: 48 }} />
-              <span style={{ fontFamily: "var(--font-display)", fontSize: 18, letterSpacing: ".5px" }}>F&amp;N&nbsp;Projects</span>
+              <Image src={fnMark} alt="" height={42} width={42} style={{ height: 42, width: 42, display: "block" }} />
+              <span style={{ fontFamily: "var(--font-display)", fontSize: 18, lineHeight: 1, letterSpacing: ".5px" }}>F&amp;N&nbsp;Projects</span>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7, color: "var(--color-on-inverse-muted)", maxWidth: 280, margin: 0 }}>
               Premium residential building &amp; renovation across Sydney and surrounds.

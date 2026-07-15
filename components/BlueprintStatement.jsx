@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/gsap";
-import fnMark from "@/public/fn-logo-rounded.png";
+import fnMark from "@/public/fn-logo-mark.png";
 
 export default function BlueprintStatement() {
   const root = useRef(null);
@@ -66,7 +66,7 @@ export default function BlueprintStatement() {
       />
 
       <div style={{ position: "relative", zIndex: 1, maxWidth: 820, margin: "0 auto", textAlign: "center", paddingBottom: "clamp(48px,7vw,88px)" }}>
-        <Image className="bp-logo" src={fnMark} alt="F&N Projects" height={132} width={132} style={{ height: 132, width: 132, marginBottom: 8 }} />
+        <Image className="bp-logo" src={fnMark} alt="F&N Projects" height={96} width={96} style={{ height: 96, width: 96, margin: "0 auto 8px", display: "block" }} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, margin: "18px 0 26px" }}>
           <span className="bp-rule" style={{ width: 64, height: 1, background: "var(--color-hairline-strong)" }} />
           <span className="bp-rule" style={{ fontSize: 12, fontWeight: 600, letterSpacing: "2px", textTransform: "uppercase", color: "var(--color-primary)" }}>

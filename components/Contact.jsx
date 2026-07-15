@@ -118,15 +118,15 @@ export default function Contact() {
           className="contact-form"
           style={{ flex: "1 1 360px", maxWidth: 460, background: "rgba(8,12,10,0.46)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", border: "1px solid var(--color-hairline-inverse)", borderRadius: "var(--radius-lg)", padding: "clamp(24px,2.6vw,34px)", display: "flex", flexDirection: "column", gap: 18 }}
         >
-          <label style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+          <label style={{ display: "flex", flexDirection: "column", gap: 11 }}>
             <span style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>Name</span>
             <input type="text" placeholder="Your name" style={inputStyle} />
           </label>
-          <label style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+          <label style={{ display: "flex", flexDirection: "column", gap: 11 }}>
             <span style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>Email</span>
             <input type="email" placeholder="you@email.com" style={inputStyle} />
           </label>
-          <label style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+          <label style={{ display: "flex", flexDirection: "column", gap: 11 }}>
             <span style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>About your project</span>
             <textarea rows={4} placeholder="Renovation, kitchen, custom build&hellip;" style={{ ...inputStyle, height: "auto", padding: "13px 15px", resize: "vertical" }} />
           </label>
