@@ -1,0 +1,192 @@
+/* ============================================================
+   F&N Projects — Design tokens (ported from Claude Design system)
+   ============================================================ */
+:root {
+  /* ---- Typography families (Inter injected by next/font) ---- */
+  --font-display: var(--font-inter), "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-inter), "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* ---- Base green ramp (sampled brand green ~#054F2A) ---- */
+  --green-900: #06331d;
+  --green-800: #0a3f24;
+  --green-700: #0b4a2b; /* brand mark green */
+  --green-600: #135f38;
+  --green-500: #1d7549;
+  --green-100: #e6ece7;
+  --green-050: #f2f5f2;
+
+  /* ---- Warm stone neutrals ---- */
+  --stone-950: #1b1a17;
+  --stone-800: #3a3833;
+  --stone-600: #66635b;
+  --stone-400: #9c988d;
+  --stone-200: #d9d5cb;
+  --stone-100: #ece9e1;
+  --stone-050: #f7f5f1;
+  --white: #ffffff;
+
+  /* ---- Semantic ---- */
+  --semantic-success: #1f7a4d;
+  --semantic-error: #b4432f;
+  --semantic-warning: #a8752c;
+
+  /* ---- Semantic aliases ---- */
+  --color-canvas: var(--stone-050);
+  --color-canvas-soft: var(--stone-100);
+  --color-surface-card: var(--white);
+  --color-surface-strong: var(--stone-100);
+  --color-surface-inverse: var(--green-700);
+
+  --color-hairline: var(--stone-200);
+  --color-hairline-soft: var(--stone-100);
+  --color-hairline-strong: var(--stone-400);
+  --color-hairline-inverse: rgba(255, 255, 255, 0.18);
+
+  --color-ink: var(--stone-950);
+  --color-body: var(--stone-600);
+  --color-muted: var(--stone-400);
+  --color-on-inverse: var(--stone-050);
+  --color-on-inverse-muted: rgba(247, 245, 241, 0.66);
+
+  --color-primary: var(--green-700);
+  --color-primary-hover: var(--green-600);
+  --color-primary-active: var(--green-900);
+  --color-primary-tint: var(--green-100);
+  --color-on-primary: var(--white);
+
+  --color-success: var(--semantic-success);
+  --color-error: var(--semantic-error);
+  --color-warning: var(--semantic-warning);
+
+  /* ---- Radius ---- */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-base: 16px;
+  --space-md: 20px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-section: 96px;
+  --container-max: 1240px;
+  --container-padding: 32px;
+
+  /* ---- Elevation ---- */
+  --shadow-none: none;
+  --shadow-card: 0 1px 2px rgba(27, 26, 23, 0.04);
+  --shadow-float: 0 12px 32px rgba(27, 26, 23, 0.14), 0 2px 8px rgba(27, 26, 23, 0.06);
+  --shadow-inverse-float: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--color-canvas, #f7f5f1);
+  font-family: var(--font-body, system-ui, sans-serif);
+  color: var(--color-ink, #1b1a17);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+
+/* ============================================================
+   Interactive helpers (ported from design <style>)
+   ============================================================ */
+.lnk {
+  position: relative;
+  transition: color 0.12s ease-out;
+}
+.lnk:hover {
+  color: var(--color-primary);
+}
+.mail:hover {
+  color: var(--color-on-inverse) !important;
+  opacity: 1 !important;
+}
+.btn-p {
+  transition: background-color 0.12s ease-out;
+}
+.btn-p:hover {
+  background: var(--color-primary-hover) !important;
+}
+.btn-p:active {
+  background: var(--color-primary-active) !important;
+}
+.card-lift {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-float);
+}
+.card-lift:hover .card-img {
+  transform: scale(1.04);
+}
+.gal-item:hover .gal-img {
+  transform: scale(1.045);
+}
+.gal-arrow:hover {
+  background: var(--color-ink) !important;
+  color: #fff !important;
+  border-color: var(--color-ink) !important;
+}
+#gal-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================
+   Animation base states
+   Elements start hidden; GSAP reveals them. No-JS + reduced
+   motion fall back to fully visible.
+   ============================================================ */
+.anim-hidden {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .anim-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Blind-reveal strips fully retracted when motion is reduced. */
+  .gal-strip {
+    transform: scaleX(0) !important;
+  }
+}
+
+/* On small screens, collapse the inline text nav — keep the CTA. */
+@media (max-width: 620px) {
+  .nav-link-hide {
+    display: none !important;
+  }
+}
