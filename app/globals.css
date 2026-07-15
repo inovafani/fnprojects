@@ -209,6 +209,22 @@ img {
   }
 }
 
+/* ---- Hero CTAs ----
+   Side by side on desktop. On mobile they stack, and the container shrinks to
+   its widest child ("Enquire about your project") while `stretch` pulls the
+   narrower button out to match it — equal width, without going full-bleed. */
+@media (max-width: 600px) {
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    align-self: flex-start;
+    width: fit-content;
+  }
+  .hero-cta {
+    justify-content: center;
+  }
+}
+
 /* ---- About stats: vertical rules on desktop, stacked rules on mobile ---- */
 .stat-col {
   flex: 1 1 200px;

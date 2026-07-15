@@ -121,7 +121,7 @@ export default function Hero() {
         >
           Kitchens, bathrooms, full renovations and custom builds &mdash; finished to the same standard, every time.
         </p>
-        <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+        <div className="hero-ctas" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
           <a
             href="#contact"
             className="btn-p hero-cta anim-hidden"
