@@ -11,12 +11,12 @@ const inter = Inter({
 export const metadata = {
   title: "F&N Projects — Renovations, built to live in.",
   description:
-    "Premium residential building & renovation across Sydney. Kitchens, bathrooms, full renovations and custom builds — finished to the same standard, every time.",
+    "Premium residential building & renovation across Brisbane. Kitchens, bathrooms, full renovations and custom builds — finished to the same standard, every time.",
   metadataBase: new URL("https://fnprojects.org"),
   openGraph: {
     title: "F&N Projects — Renovations, built to live in.",
     description:
-      "Premium residential building & renovation across Sydney. Finished to the same standard, every time.",
+      "Premium residential building & renovation across Brisbane. Finished to the same standard, every time.",
     type: "website",
   },
 };

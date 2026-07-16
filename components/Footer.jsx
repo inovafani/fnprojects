@@ -19,7 +19,7 @@ export default function Footer() {
               <span style={{ fontFamily: "var(--font-display)", fontSize: 18, lineHeight: 1, letterSpacing: ".5px" }}>F&amp;N&nbsp;Projects</span>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7, color: "var(--color-on-inverse-muted)", maxWidth: 280, margin: 0 }}>
-              Premium residential building &amp; renovation across Sydney and surrounds.
+              Premium residential building &amp; renovation across Brisbane and surrounds.
             </p>
           </div>
           <div style={{ flex: "1 1 150px" }}>
@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", gap: 16, flexWrap: "wrap", paddingTop: 24, fontSize: 13, color: "var(--color-on-inverse-muted)" }}>
           <span>&copy; 2026 F&amp;N Projects. All rights reserved.</span>
-          <span>Licensed builder &middot; Sydney, Australia</span>
+          <span>Licensed builder &middot; Brisbane, Australia</span>
         </div>
       </div>
     </footer>

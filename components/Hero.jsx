@@ -94,7 +94,7 @@ export default function Hero() {
           className="hero-eyebrow anim-hidden"
           style={{ fontSize: 12, fontWeight: 600, letterSpacing: "1.8px", textTransform: "uppercase", color: "rgba(255,255,255,.72)", marginBottom: 26 }}
         >
-          Sydney &middot; Residential Builders
+          Brisbane &middot; Residential Builders
         </div>
         <h1
           style={{
